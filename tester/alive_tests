@@ -1,0 +1,7 @@
+./philo 5 800 200 200 7
+./philo 4 410 200 200 10
+timeout 30 ./philo 4 410 200 200
+timeout 30 ./philo 5 800 200 200
+timeout 30 ./philo 100 800 200 200
+timeout 30 ./philo 105 800 200 200
+timeout 30 ./philo 200 800 200 200
