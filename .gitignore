@@ -1,3 +1,5 @@
 *.o
 philo
 .gitconfig
+logtest_alive
+logtest_die
