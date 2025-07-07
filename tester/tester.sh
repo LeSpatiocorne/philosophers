@@ -13,7 +13,7 @@ function run_tests() {
 
 	echo "Execution of the tests in $file"
 	while IFS= read -r line || [ -n "$line" ]; do
-		echo "testing \"$line\" :"
+		echo -n "testing \"$line\" : "
 		echo "Exécution : $line" >> "$log"
 		
 		# Remplace seulement './philo' par '../philo' sans toucher à timeout ou autre
