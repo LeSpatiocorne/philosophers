@@ -37,4 +37,4 @@ To make your own test, you can simply add the execution command in the correspon
 
 # Valgrind.sh
 This is a really usefull shortcut argument to test philosophers.
-It's the way to know if your philosophers suposed to live are dying from an obvious deadlock.
+It's the way to know if your philosophers suposed to live are dying from an obvious deadlock because of a "data race".
