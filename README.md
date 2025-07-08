@@ -34,3 +34,7 @@ Some test are supposed to be infinite loop, so in order to not make them really 
 Every time you run the tester, all the outputs goes under the results folder where you can check for the full execution log.
 
 To make your own test, you can simply add the execution command in the corresponding file by adding a line, since the test will take a line in the file as an executable command.
+
+# Valgrind.sh
+This is a really usefull shortcut argument to test philosophers.
+It's the way to know if your philosophers suposed to live are dying from an obvious deadlock.
