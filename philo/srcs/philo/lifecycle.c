@@ -64,6 +64,12 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_t	*first_fork;
 	pthread_mutex_t	*second_fork;
 
+	if (philo->data->nb_philo == 1)
+	{
+		print_status(philo, "has taken a fork", YELLOW);
+		ft_usleep(philo->data->time_to_die);
+		return ;
+	}
 	first_fork = ft_ternary(philo->id % 2 == 0,
 			philo->left_fork, philo->right_fork);
 	second_fork = ft_ternary(philo->id % 2 == 0,

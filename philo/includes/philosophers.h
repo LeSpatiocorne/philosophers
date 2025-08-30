@@ -59,6 +59,7 @@ struct s_data
 void	ft_putstr_fd(int fd, char *str);
 long	ft_atol(char *str);
 void	*ft_ternary(int condition, void *true, void *false);
+void	spfc_err_case(char *str, int n);
 
 long	get_time_in_ms(void);
 long	timestamp(long start);

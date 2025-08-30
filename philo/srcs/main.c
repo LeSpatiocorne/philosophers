@@ -29,10 +29,31 @@ static void	print_welcome(t_data *data)
 
 static int	handle_single_philosopher(t_data *data)
 {
-	printf(YELLOW"0 1 has taken a fork\n"RESET);
-	ft_usleep(data->time_to_die);
-	printf(RED"%ld 1 died\n"RESET, data->time_to_die);
-	return (1);
+	pthread_t	philo_thread;
+	void		*result;
+
+	if (!init_data(data))
+	{
+		ft_putstr_fd(2, RED"Error: Couldn't initialize.\n"RESET);
+		return (1);
+	}
+	print_welcome(data);
+	if (pthread_create(&philo_thread, NULL, philosopher_routine,
+			&data->philos[0]) != 0)
+	{
+		ft_putstr_fd(2, RED"Error: Couldn't create philosopher thread.\n"RESET);
+		cleanup_data(data);
+		return (1);
+	}
+	if (pthread_join(philo_thread, &result) != 0)
+	{
+		ft_putstr_fd(2, RED"Error: Couldn't join philosopher thread.\n"RESET);
+		cleanup_data(data);
+		return (1);
+	}
+	cleanup_data(data);
+	printf(BLUE"\nEnd of simulation.\n"RESET);
+	return (0);
 }
 
 int	main(int ac, char **av)

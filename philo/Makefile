@@ -3,7 +3,16 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS = $(shell find srcs -name "*.c")
+SRCS =	srcs/main.c \
+		srcs/philo/lifecycle.c \
+		srcs/philo/monitor_routine.c \
+		srcs/philo/routine.c \
+		srcs/utils/specific_error_case.c \
+		srcs/utils/ft_ternaries.c \
+		srcs/utils/ft_utils.c \
+		srcs/utils/init.c \
+		srcs/utils/parsing.c \
+		srcs/utils/time.c
 
 OBJDIR = objs
 OBJS = $(SRCS:srcs/%.c=$(OBJDIR)/%.o)

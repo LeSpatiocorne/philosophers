@@ -68,6 +68,8 @@ void	*philosopher_routine(void *arg)
 	while (check_alive(philo))
 	{
 		philo_eat(philo);
+		if (is_dead(philo))
+			break ;
 		if (!check_alive(philo))
 			break ;
 		if (philo->data->must_eat_count > 0
@@ -92,13 +94,13 @@ int	start_simulation(t_data *data)
 		if (pthread_create(&data->philos[i].thread, NULL,
 				philosopher_routine, &data->philos[i]) != 0)
 		{
-			printf(RED"Erreur lors de la création du thread %d\n"RESET, i);
+			spfc_err_case(RED"Erreur lors de la création du thread "RESET, i);
 			return (0);
 		}
 	}
 	if (pthread_create(&monitor_thread, NULL, monitor_routine, data) != 0)
 	{
-		printf(RED"Erreur lors de la création du thread"
+		ft_putstr_fd(2, RED"Erreur lors de la création du thread"
 			"de surveillance\n"RESET);
 		return (0);
 	}
